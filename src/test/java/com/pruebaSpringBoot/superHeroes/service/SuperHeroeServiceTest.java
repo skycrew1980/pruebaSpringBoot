@@ -5,13 +5,11 @@ import java.util.List;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
 import org.mockito.BDDMockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.pruebaSpringBoot.superHeroes.entity.SuperHeroe;
 import com.pruebaSpringBoot.superHeroes.model.SuperHeroeDTO;
@@ -19,7 +17,6 @@ import com.pruebaSpringBoot.superHeroes.repository.SuperHeroesRepository;
 
 import javassist.NotFoundException;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class SuperHeroeServiceTest {
 
