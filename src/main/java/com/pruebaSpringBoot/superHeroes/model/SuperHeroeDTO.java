@@ -1,7 +1,14 @@
 package com.pruebaSpringBoot.superHeroes.model;
 
-public class SuperHeroeDTO {
+import java.io.Serializable;
+
+public class SuperHeroeDTO implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3491440321019836759L;
+
 	private Long id;
 	
 	private String name;

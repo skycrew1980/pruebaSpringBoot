@@ -19,6 +19,4 @@ public interface SuperHeroesRepository extends CrudRepository<SuperHeroe, Intege
 	List<SuperHeroe> findByNameLike(String name);
 	
 	SuperHeroe save(SuperHeroe superHeroe);
-	
-//	List<SuperHeroe> findByFirstnameContaining(String name);
 }
