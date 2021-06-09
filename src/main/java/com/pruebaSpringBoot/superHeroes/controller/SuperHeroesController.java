@@ -36,19 +36,19 @@ public class SuperHeroesController {
 	}
 	
 	@GetMapping("/superHeroes/{name}")
-	public List<SuperHeroeDTO> findByName(@PathVariable String name) {
+	public List<SuperHeroeDTO> findByName(@RequestParam(name = "name", required = false) String name) {
 
 	    return superHeroesService.findByName(name);
 	}
 	
     @DeleteMapping("/superHeroes/{id}")
-    public void delete(@PathVariable Long id) throws NotFoundException {
+    public void delete(@RequestParam(name = "id", required = true)  Long id) throws NotFoundException {
 
         superHeroesService.delete(id);
     }
     
     @PutMapping("/superHeroes/{id}")
-    public SuperHeroe update(@RequestBody SuperHeroe superHeroe, @PathVariable Long id) throws NotFoundException  {
+    public SuperHeroe update(@RequestBody SuperHeroe superHeroe, @RequestParam(name = "id", required = true) Long id) throws NotFoundException  {
     	superHeroe.setId(id);
         return superHeroesService.update(superHeroe);
     }
