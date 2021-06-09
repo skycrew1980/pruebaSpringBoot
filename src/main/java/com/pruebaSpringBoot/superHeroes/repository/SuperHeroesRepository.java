@@ -1,6 +1,7 @@
 package com.pruebaSpringBoot.superHeroes.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -8,11 +9,11 @@ import org.springframework.stereotype.Repository;
 import com.pruebaSpringBoot.superHeroes.entity.SuperHeroe;
 
 @Repository
-public interface SuperHeroesRepository extends CrudRepository<SuperHeroe, Integer>{
+public interface SuperHeroesRepository extends CrudRepository<SuperHeroe, Long>{
 
 	List<SuperHeroe>findAll();
 	
-	SuperHeroe findById(Long id);
+	Optional<SuperHeroe> findById(Integer id);
 	
 	void deleteById(Long id);
 	

@@ -2,6 +2,7 @@ package com.pruebaSpringBoot.superHeroes.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -51,7 +52,7 @@ public class SuperHeroeServiceTest {
 	  public void findById_ReturnsSuperHeroe() {
 	    // given: Un SuperHeroe con el id buscado
 	    Long idBuscado = 1L;
-	    BDDMockito.given(repository.findById(idBuscado)).willReturn(generarMockSuperHeroe(idBuscado, "SuperHeroe"));
+	    BDDMockito.given(repository.findById(idBuscado)).willReturn(Optional.of(generarMockSuperHeroe(idBuscado, "SuperHeroe")));
 
 	    // when: Buscamos el SuperHeroe por su id
 	    SuperHeroeDTO superHeroe = service.findById(idBuscado);
@@ -67,7 +68,7 @@ public class SuperHeroeServiceTest {
 	    // given: id a borrar
 		Long idBorrado = 1L;
 		SuperHeroe superHeroe = generarMockSuperHeroe(1L, "SuperHeroe");
-		BDDMockito.given(repository.findById(ArgumentMatchers.<Long>any())).willReturn(superHeroe);
+		BDDMockito.given(repository.findById(ArgumentMatchers.<Long>any())).willReturn(Optional.of(superHeroe));
 		BDDMockito.doNothing().when(repository).deleteById(ArgumentMatchers.<Long>any());
 
 		 Assertions.assertThatCode(
@@ -111,7 +112,7 @@ public class SuperHeroeServiceTest {
 		Long idActualizar = 1L;
 		SuperHeroe superHeroe = generarMockSuperHeroe(idActualizar, "SuperHeroe");
 		SuperHeroe superHeroeActualizar = generarMockSuperHeroe(idActualizar, "SuperMan");
-		BDDMockito.given(repository.findById(idActualizar)).willReturn(superHeroe);
+		BDDMockito.given(repository.findById(idActualizar)).willReturn(Optional.of(superHeroe));
 	    BDDMockito.given(repository.save(superHeroeActualizar)).willReturn(superHeroeActualizar);
 
 		 Assertions.assertThatCode(

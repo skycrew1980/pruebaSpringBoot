@@ -35,7 +35,7 @@ public class SuperHeroesService {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = true, timeout = -1, rollbackFor = Exception.class)
 	public SuperHeroeDTO findById(Long id) {
 		
-		return SuperHeroeMapping.mappingToSuperHeroeDTO(superHeroesRepository.findById(id));
+		return SuperHeroeMapping.mappingToSuperHeroeDTO(superHeroesRepository.findById(id).get());
 	}
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = true, timeout = -1, rollbackFor = Exception.class)

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pruebaSpringBoot.superHeroes.entity.SuperHeroe;
@@ -29,7 +30,7 @@ public class SuperHeroesController {
     }
 	
 	@GetMapping("/superHeroes/{id}")
-	public SuperHeroeDTO findById(@PathVariable Long id) {
+	public SuperHeroeDTO findById(@RequestParam(name = "id", required = true) Long id) {
 
 	    return superHeroesService.findById(id);
 	}
