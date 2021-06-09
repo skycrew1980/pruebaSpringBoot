@@ -13,7 +13,7 @@ public interface SuperHeroesRepository extends CrudRepository<SuperHeroe, Long>{
 
 	List<SuperHeroe>findAll();
 	
-	Optional<SuperHeroe> findById(Integer id);
+	Optional<SuperHeroe> findById(Long id);
 	
 	void deleteById(Long id);
 	
